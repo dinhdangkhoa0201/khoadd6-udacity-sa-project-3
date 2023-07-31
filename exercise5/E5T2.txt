@@ -1,0 +1,29 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+- checkov - https://www.checkov.io/
+- tflint - https://github.com/terraform-linters/tflint
+
+### Example vulnerability
+- Ensure IAM policies does not allow permissions management without constraints
+- Ensure every security groups rule has a description
+- Ensure no security groups allow ingress from 0.0.0.0:0 to port 22
+- Ensure no security groups allow ingress from 0.0.0.0:0 to port 80
+- Ensure that ALB drops HTTP headers
+- Ensure ALB protocol is HTTPS
+
+## Scan AMI’s or containers for OS vulnerabilities
+- Clair - https://github.com/quay/clair
+- Anchore - https://anchore.com/opensource/
+
+### Example vulnerability
+
+## Scan an AWS environment for cloud configuration vulnerabilities
+- AWS Config
+- AWS Trusted Advisor
+- AWS Security Hub
+
+### Example vulnerability
+- Checks that the 'AWSSupportAccess' managed policy is attached to any IAM user, group, or role.
+- Checks whether AWS CloudTrail is enabled in your AWS account. Optionally, you can specify which S3 bucket, SNS topic, and Amazon CloudWatch Logs ARN to use.
+- Checks whether the AWS Identity and Access Management users have multi-factor authentication (MFA) enabled.

@@ -1,0 +1,17 @@
+
+# What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+- Implement a Web Application Firewall (WAF)
+- Remove login SSH
+- Implement Security Groups with specific port
+
+# Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+- Creating VPC private endpoints for S3 can help prevent unauthorized access to the secrets bucket, even if the IAM permissions for the bucket are insecure.
+- When you create a VPC endpoint for S3, it allows you to access S3 directly from your VPC without going over the internet. This means that the traffic between your VPC and S3 remains within the AWS network and doesn't traverse the public internet.
+- By using VPC endpoints, you can ensure that the traffic between your EC2 instances and S3 buckets stays within the private network, reducing the attack surface and potential exposure to unauthorized access.
+
+# Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+- No, applying the default encryption setting to S3 buckets will not automatically encrypt the data that already exists in the buckets.
+- To encrypt the data that already exists in the S3 bucket, you would need to perform a separate encryption process. This can involve using AWS tools or services to encrypt the existing objects and then re-upload them to the bucket. The specific encryption method and process would depend on your requirements and the encryption options available in AWS.
+
+# What would happen if the original cloud formation templates are applied to this environment.
+- If the original CloudFormation templates are applied to the environment after making changes through the console or CLI, it would likely result in the configuration being reverted back to the settings defined in the CloudFormation templates.

@@ -1,0 +1,14 @@
+# Describe GuardDuty findings that were detected related to the brute force attack
+UnauthorizedAccess:EC2/SSHBruteForce
+i-02d388097d8c949a8 is performing SSH brute force attacks against 44.217.120.48. Brute force attacks are used to gain unauthorized access to your instance by guessing the SSH password.
+
+# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+AWS GuardDuty is a threat detection service that continuously monitors your AWS environment for malicious activity and unauthorized behavior. It uses machine learning algorithms and integrated threat intelligence to analyze events across multiple data sources, such as VPC Flow Logs, CloudTrail logs, and DNS logs.
+In the case of a brute force attack, GuardDuty may have detected this attack based on the following factors:
+1. Abnormal Behavior Analysis: GuardDuty analyzes the behavior of various entities in your AWS environment, including EC2 instances, IAM users, and VPCs. It establishes a baseline of normal behavior and looks for any deviations from that baseline. In the case of a brute force attack, it may detect multiple failed login attempts from a single IP address or unusual patterns of login attempts.
+
+2. IP Reputation Lists: GuardDuty maintains a list of known malicious IP addresses and compares incoming traffic against this list. If an IP address associated with the brute force attack is present in the reputation list, GuardDuty can flag it as a potential threat.
+
+3. Anomaly Detection: GuardDuty uses machine learning algorithms to identify anomalies in network traffic and user behavior. It can detect patterns that indicate a brute force attack, such as a sudden increase in failed login attempts or a high rate of login attempts from a single IP address.
+
+4. Threat Intelligence: GuardDuty integrates with various threat intelligence feeds to identify known attack patterns and indicators of compromise. It compares incoming events against this threat intelligence data to identify potential threats, including brute force attacks.

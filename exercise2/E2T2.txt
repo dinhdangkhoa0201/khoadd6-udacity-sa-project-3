@@ -1,0 +1,39 @@
+AWS Inspector
+TCP port 21 which is associated with 'FTP' is reachable from the internet
+TCP port 23 which is associated with 'Telnet' is reachable from the internet
+UDP port 20 which is associated with 'FTP' is reachable from the internet
+UDP port 23 which is associated with 'Telnet' is reachable from the internet
+UDP port 21 which is associated with 'FTP' is reachable from the internet
+TCP port 20 which is associated with 'FTP' is reachable from the internet
+
+AWS Security Hub
+Hardware MFA should be enabled for the root user
+Virtual MFA should be enabled for the root user
+Security groups should not allow ingress from 0.0.0.0/0 to port 22
+The VPC default security group should not allow inbound and outbound traffic
+CloudTrail should be enabled and configured with at least one multi-Region trail that includes read and write management events
+Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389
+
+AWS Config
+COMPLIANT
+Checks if there are unused Network Access Control Lists (NACLs). The rule is NON_COMPLIANT if an NACL is not associated with a subnet.
+Checks to see if S3 buckets are publicly readable.
+Checks to see if S3 buckets allow public write.
+Checks that the Amazon Simple Storage Service bucket policy does not allow blacklisted bucket-level and object-level actions on resources in the bucket for principals from other AWS accounts.
+This control checks to ensure that your Amazon S3 buckets does not allow user permissions via access control lists. This control fails if ACLs are configured for user access on S3 Bucket.
+This control checks if Amazon S3 buckets have bucket level public access blocks applied. This control fails if any of the bucket level settings are set to "false" public: ignorePublicAcls, blockPublicPolicy, blockPublicAcls, restrictPublicBuckets.
+Checks that your Amazon S3 bucket either has Amazon S3 default encryption enabled or that the S3 bucket policy explicitly denies put-object requests without server side encryption.
+This control checks whether your IAM users have passwords or active access keys that were not used within the previous 45 days.
+This control checks whether your IAM users have passwords or active access keys that were not used within the previous 90 days.
+Checks whether the root user access key is available.
+NO_COMPLIANT
+Checks that the 'AWSSupportAccess' managed policy is attached to any IAM user, group, or role.
+Checks whether AWS CloudTrail is enabled in your AWS account. Optionally, you can specify which S3 bucket, SNS topic, and Amazon CloudWatch Logs ARN to use.
+Checks whether the AWS Identity and Access Management users have multi-factor authentication (MFA) enabled.
+Checks whether AWS Multi-Factor Authentication (MFA) is enabled for all AWS Identity and Access Management (IAM) users that use a console password.
+This control checks if default ports for SSH/RDP ingress traffic for network access control lists (NACLs) is unrestricted. The rule fails if a NACL inbound entry allows a source CIDR block of '0.0.0.0/0' or '::/0' for ports 22 or 3389
+Checks whether the EBS volumes that are in an attached state are encrypted. If you specify the ID of a KMS key for encryption using the kmsId parameter, the rule checks if the EBS volumes in an attached state are encrypted with that KMS key.
+Checks whether the account password policy for IAM users prevents password reuse.
+Checks whether Elastic Load Balancing has deletion protection enabled. The rule is NON_COMPLIANT if deletion_protection.enabled is false.
+Checks whether the account password policy for IAM users requires at least one lowercase character in password.
+Checks whether the Application Load Balancer and the Classic Load Balancer have logging enabled. The rule is NON_COMPLIANT if the access_logs.s3.enabled is false or access_logs.S3.bucket is not equal to the s3BucketName that you provided.

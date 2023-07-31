@@ -1,0 +1,541 @@
+$ checkov -d . --framework cloudformation
+[ cloudformation framework ]: 100%|████████████████████|[3/3], Current File Scanned=/c3-vpc.yml
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By bridgecrew.io | version: 2.3.347
+
+cloudformation scan results:
+
+Passed checks: 28, Failed checks: 32, Skipped checks: 0
+
+Check: CKV_AWS_62: "Ensure no IAM policies that allow full "*-*" administrative privileges are not created"
+        PASSED for resource: AWS::IAM::Role.InstanceRole
+        File: /c3-app.yml:16-36
+        Guide: https://docs.bridgecrew.io/docs/iam_47
+Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+        PASSED for resource: AWS::IAM::Role.InstanceRole
+        File: /c3-app.yml:16-36
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-credentials-exposure.html
+Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+        PASSED for resource: AWS::IAM::Role.InstanceRole
+        File: /c3-app.yml:16-36
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-does-not-allow-privilege-escalation.html
+Check: CKV_AWS_61: "Ensure AWS IAM policy does not allow assume role permission across all services"
+        PASSED for resource: AWS::IAM::Role.InstanceRole
+        File: /c3-app.yml:16-36
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-45.html
+Check: CKV_AWS_60: "Ensure IAM role allows only specific services or principals to assume it"
+        PASSED for resource: AWS::IAM::Role.InstanceRole
+        File: /c3-app.yml:16-36
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-44.html
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+        PASSED for resource: AWS::IAM::Role.InstanceRole
+        File: /c3-app.yml:16-36
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-iam-policies/iam-48.html
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+        PASSED for resource: AWS::EC2::SecurityGroup.WebAppSG
+        File: /c3-app.yml:45-68
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-2.html
+Check: CKV_AWS_46: "Ensure no hard-coded secrets exist in EC2 user data"
+        PASSED for resource: AWS::EC2::Instance.RecipeWebServiceInstance
+        File: /c3-app.yml:70-94
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/secrets-policies/bc-aws-secrets-1.html
+Check: CKV_AWS_88: "EC2 instance should not have public IP."
+        PASSED for resource: AWS::EC2::Instance.RecipeWebServiceInstance
+        File: /c3-app.yml:70-94
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/public-policies/public-12.html
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+        PASSED for resource: AWS::EC2::SecurityGroup.AppLoadBalancerSG
+        File: /c3-app.yml:98-111
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-1-port-security.html
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+        PASSED for resource: AWS::EC2::SecurityGroup.AppLoadBalancerSG
+        File: /c3-app.yml:98-111
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-2.html
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+        PASSED for resource: AWS::EC2::SecurityGroup.AttackInstanceSG
+        File: /c3-app.yml:152-165
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-2.html
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+        PASSED for resource: AWS::EC2::SecurityGroup.AttackInstanceSG
+        File: /c3-app.yml:152-165
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80.html
+Check: CKV_AWS_46: "Ensure no hard-coded secrets exist in EC2 user data"
+        PASSED for resource: AWS::EC2::Instance.AttackInstance
+        File: /c3-app.yml:167-179
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/secrets-policies/bc-aws-secrets-1.html
+Check: CKV_AWS_88: "EC2 instance should not have public IP."
+        PASSED for resource: AWS::EC2::Instance.AttackInstance
+        File: /c3-app.yml:167-179
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/public-policies/public-12.html
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: /c3-s3.yml:4-7
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest.html
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: /c3-s3.yml:4-7
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone.html
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: /c3-s3.yml:4-7
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone.html
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: /c3-s3.yml:8-11
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest.html
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: /c3-s3.yml:8-11
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone.html
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: /c3-s3.yml:8-11
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone.html
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: /c3-s3.yml:12-15
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest.html
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: /c3-s3.yml:12-15
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone.html
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: /c3-s3.yml:12-15
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone.html
+Check: CKV_AWS_23: "Ensure every security groups rule has a description"
+        PASSED for resource: AWS::EC2::SecurityGroup.NoIngressSecurityGroup
+        File: /c3-vpc.yml:209-214
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-31.html
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+        PASSED for resource: AWS::EC2::SecurityGroup.NoIngressSecurityGroup
+        File: /c3-vpc.yml:209-214
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-1-port-security.html
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+        PASSED for resource: AWS::EC2::SecurityGroup.NoIngressSecurityGroup
+        File: /c3-vpc.yml:209-214
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-2.html
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+        PASSED for resource: AWS::EC2::SecurityGroup.NoIngressSecurityGroup
+        File: /c3-vpc.yml:209-214
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80.html
+Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+        FAILED for resource: AWS::IAM::Role.InstanceRole
+        File: /c3-app.yml:16-36
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-data-exfiltration.html
+
+                16 |   InstanceRole:
+                17 |     Type: 'AWS::IAM::Role'
+                18 |     Properties:
+                19 |       AssumeRolePolicyDocument:
+                20 |         Version: 2012-10-17
+                21 |         Statement:
+                22 |           - Effect: Allow
+                23 |             Principal:
+                24 |               Service:
+                25 |               - ec2.amazonaws.com
+                26 |             Action:
+                27 |               - 'sts:AssumeRole'
+                28 |       Path: /
+                29 |       Policies:
+                30 |         - PolicyName: InstanceRolePolicy-C3
+                31 |           PolicyDocument:
+                32 |             Version: 2012-10-17
+                33 |             Statement:
+                34 |               - Effect: Allow
+                35 |                 Action: 's3:*'
+                36 |                 Resource: '*'
+
+Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management without constraints"
+        FAILED for resource: AWS::IAM::Role.InstanceRole
+        File: /c3-app.yml:16-36
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint.html
+
+                16 |   InstanceRole:
+                17 |     Type: 'AWS::IAM::Role'
+                18 |     Properties:
+                19 |       AssumeRolePolicyDocument:
+                20 |         Version: 2012-10-17
+                21 |         Statement:
+                22 |           - Effect: Allow
+                23 |             Principal:
+                24 |               Service:
+                25 |               - ec2.amazonaws.com
+                26 |             Action:
+                27 |               - 'sts:AssumeRole'
+                28 |       Path: /
+                29 |       Policies:
+                30 |         - PolicyName: InstanceRolePolicy-C3
+                31 |           PolicyDocument:
+                32 |             Version: 2012-10-17
+                33 |             Statement:
+                34 |               - Effect: Allow
+                35 |                 Action: 's3:*'
+                36 |                 Resource: '*'
+
+Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+        FAILED for resource: AWS::IAM::Role.InstanceRole
+        File: /c3-app.yml:16-36
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-write-access-without-constraint.html
+
+                16 |   InstanceRole:
+                17 |     Type: 'AWS::IAM::Role'
+                18 |     Properties:
+                19 |       AssumeRolePolicyDocument:
+                20 |         Version: 2012-10-17
+                21 |         Statement:
+                22 |           - Effect: Allow
+                23 |             Principal:
+                24 |               Service:
+                25 |               - ec2.amazonaws.com
+                26 |             Action:
+                27 |               - 'sts:AssumeRole'
+                28 |       Path: /
+                29 |       Policies:
+                30 |         - PolicyName: InstanceRolePolicy-C3
+                31 |           PolicyDocument:
+                32 |             Version: 2012-10-17
+                33 |             Statement:
+                34 |               - Effect: Allow
+                35 |                 Action: 's3:*'
+                36 |                 Resource: '*'
+
+Check: CKV_AWS_23: "Ensure every security groups rule has a description"
+        FAILED for resource: AWS::EC2::SecurityGroup.WebAppSG
+        File: /c3-app.yml:45-68
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-31.html
+
+                45 |   WebAppSG:
+                46 |     Type: AWS::EC2::SecurityGroup
+                47 |     Properties:
+                48 |       GroupName: WebAppSG
+                49 |       GroupDescription: "Security group for this application server"
+                50 |       SecurityGroupEgress:
+                51 |       - IpProtocol: -1
+                52 |         CidrIp: 0.0.0.0/0
+                53 |       SecurityGroupIngress:
+                54 |       - IpProtocol: -1
+                55 |         CidrIp: 0.0.0.0/0
+                56 |       - IpProtocol: tcp
+                57 |         FromPort: 22
+                58 |         ToPort: 22
+                59 |         CidrIp: 0.0.0.0/0
+                60 |       - IpProtocol: tcp
+                61 |         FromPort: 5000
+                62 |         ToPort: 5000
+                63 |         CidrIp: 0.0.0.0/0
+                64 |       - IpProtocol: tcp
+                65 |         FromPort: 80
+                66 |         ToPort: 80
+                67 |         CidrIp: 0.0.0.0/0
+                68 |       VpcId: !ImportValue VpcId
+
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+        FAILED for resource: AWS::EC2::SecurityGroup.WebAppSG
+        File: /c3-app.yml:45-68
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-1-port-security.html
+
+                45 |   WebAppSG:
+                46 |     Type: AWS::EC2::SecurityGroup
+                47 |     Properties:
+                48 |       GroupName: WebAppSG
+                49 |       GroupDescription: "Security group for this application server"
+                50 |       SecurityGroupEgress:
+                51 |       - IpProtocol: -1
+                52 |         CidrIp: 0.0.0.0/0
+                53 |       SecurityGroupIngress:
+                54 |       - IpProtocol: -1
+                55 |         CidrIp: 0.0.0.0/0
+                56 |       - IpProtocol: tcp
+                57 |         FromPort: 22
+                58 |         ToPort: 22
+                59 |         CidrIp: 0.0.0.0/0
+                60 |       - IpProtocol: tcp
+                61 |         FromPort: 5000
+                62 |         ToPort: 5000
+                63 |         CidrIp: 0.0.0.0/0
+                64 |       - IpProtocol: tcp
+                65 |         FromPort: 80
+                66 |         ToPort: 80
+                67 |         CidrIp: 0.0.0.0/0
+                68 |       VpcId: !ImportValue VpcId
+
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+        FAILED for resource: AWS::EC2::SecurityGroup.WebAppSG
+        File: /c3-app.yml:45-68
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80.html
+
+                45 |   WebAppSG:
+                46 |     Type: AWS::EC2::SecurityGroup
+                47 |     Properties:
+                48 |       GroupName: WebAppSG
+                49 |       GroupDescription: "Security group for this application server"
+                50 |       SecurityGroupEgress:
+                51 |       - IpProtocol: -1
+                52 |         CidrIp: 0.0.0.0/0
+                53 |       SecurityGroupIngress:
+                54 |       - IpProtocol: -1
+                55 |         CidrIp: 0.0.0.0/0
+                56 |       - IpProtocol: tcp
+                57 |         FromPort: 22
+                58 |         ToPort: 22
+                59 |         CidrIp: 0.0.0.0/0
+                60 |       - IpProtocol: tcp
+                61 |         FromPort: 5000
+                62 |         ToPort: 5000
+                63 |         CidrIp: 0.0.0.0/0
+                64 |       - IpProtocol: tcp
+                65 |         FromPort: 80
+                66 |         ToPort: 80
+                67 |         CidrIp: 0.0.0.0/0
+                68 |       VpcId: !ImportValue VpcId
+
+Check: CKV_AWS_23: "Ensure every security groups rule has a description"
+        FAILED for resource: AWS::EC2::SecurityGroup.AppLoadBalancerSG
+        File: /c3-app.yml:98-111
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-31.html
+
+                98  |   AppLoadBalancerSG:
+                99  |     Type: AWS::EC2::SecurityGroup
+                100 |     Properties:
+                101 |       GroupName: AppLoadBalancerSG
+                102 |       GroupDescription: "Security group for this application server"
+                103 |       SecurityGroupEgress:
+                104 |       - IpProtocol: -1
+                105 |         CidrIp: 0.0.0.0/0
+                106 |       SecurityGroupIngress:
+                107 |       - IpProtocol: tcp
+                108 |         FromPort: 80
+                109 |         ToPort: 80
+                110 |         CidrIp: 0.0.0.0/0
+                111 |       VpcId: !ImportValue VpcId
+
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+        FAILED for resource: AWS::EC2::SecurityGroup.AppLoadBalancerSG
+        File: /c3-app.yml:98-111
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80.html
+
+                98  |   AppLoadBalancerSG:
+                99  |     Type: AWS::EC2::SecurityGroup
+                100 |     Properties:
+                101 |       GroupName: AppLoadBalancerSG
+                102 |       GroupDescription: "Security group for this application server"
+                103 |       SecurityGroupEgress:
+                104 |       - IpProtocol: -1
+                105 |         CidrIp: 0.0.0.0/0
+                106 |       SecurityGroupIngress:
+                107 |       - IpProtocol: tcp
+                108 |         FromPort: 80
+                109 |         ToPort: 80
+                110 |         CidrIp: 0.0.0.0/0
+                111 |       VpcId: !ImportValue VpcId
+
+Check: CKV_AWS_131: "Ensure that ALB drops HTTP headers"
+        FAILED for resource: AWS::ElasticLoadBalancingV2::LoadBalancer.AppLoadBalancer
+        File: /c3-app.yml:119-127
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/ensure-that-alb-drops-http-headers.html
+
+                119 |   AppLoadBalancer:
+                120 |     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+                121 |     Properties:
+                122 |       Name: c1-web-service-alb
+                123 |       SecurityGroups:
+                124 |       - !GetAtt AppLoadBalancerSG.GroupId
+                125 |       Subnets:
+                126 |         - !ImportValue PublicSubnetTrusted
+                127 |         - !ImportValue PublicSubnetUnTrusted
+
+Check: CKV_AWS_91: "Ensure the ELBv2 (Application/Network) has access logging enabled"
+        FAILED for resource: AWS::ElasticLoadBalancingV2::LoadBalancer.AppLoadBalancer
+        File: /c3-app.yml:119-127
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-logging-policies/bc-aws-logging-22.html
+
+                119 |   AppLoadBalancer:
+                120 |     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+                121 |     Properties:
+                122 |       Name: c1-web-service-alb
+                123 |       SecurityGroups:
+                124 |       - !GetAtt AppLoadBalancerSG.GroupId
+                125 |       Subnets:
+                126 |         - !ImportValue PublicSubnetTrusted
+                127 |         - !ImportValue PublicSubnetUnTrusted
+
+Check: CKV_AWS_2: "Ensure ALB protocol is HTTPS"
+        FAILED for resource: AWS::ElasticLoadBalancingV2::Listener.AppLoadBalancerListener
+        File: /c3-app.yml:129-137
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-29.html
+
+                129 |   AppLoadBalancerListener:
+                130 |     Type: AWS::ElasticLoadBalancingV2::Listener
+                131 |     Properties:
+                132 |       DefaultActions:
+                133 |         - Type: forward
+                134 |           TargetGroupArn: !Ref AppTargetGroup
+                135 |       LoadBalancerArn: !Ref AppLoadBalancer
+                136 |       Port: 80
+                137 |       Protocol: HTTP
+
+Check: CKV_AWS_103: "Ensure that Load Balancer Listener is using at least TLS v1.2"
+        FAILED for resource: AWS::ElasticLoadBalancingV2::Listener.AppLoadBalancerListener
+        File: /c3-app.yml:129-137
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-general-policies/bc-aws-general-43.html
+
+                129 |   AppLoadBalancerListener:
+                130 |     Type: AWS::ElasticLoadBalancingV2::Listener
+                131 |     Properties:
+                132 |       DefaultActions:
+                133 |         - Type: forward
+                134 |           TargetGroupArn: !Ref AppTargetGroup
+                135 |       LoadBalancerArn: !Ref AppLoadBalancer
+                136 |       Port: 80
+                137 |       Protocol: HTTP
+
+Check: CKV_AWS_23: "Ensure every security groups rule has a description"
+        FAILED for resource: AWS::EC2::SecurityGroup.AttackInstanceSG
+        File: /c3-app.yml:152-165
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-31.html
+
+                152 |   AttackInstanceSG:
+                153 |     Type: AWS::EC2::SecurityGroup
+                154 |     Properties:
+                155 |       GroupName: AttackInstanceSG
+                156 |       GroupDescription: "Security group for the attack instance"
+                157 |       SecurityGroupEgress:
+                158 |       - IpProtocol: -1
+                159 |         CidrIp: 0.0.0.0/0
+                160 |       SecurityGroupIngress:
+                161 |       - IpProtocol: tcp
+                162 |         FromPort: 22
+                163 |         ToPort: 22
+                164 |         CidrIp: 0.0.0.0/0
+                165 |       VpcId: !ImportValue VpcId
+
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+        FAILED for resource: AWS::EC2::SecurityGroup.AttackInstanceSG
+        File: /c3-app.yml:152-165
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/aws-networking-policies/networking-1-port-security.html
+
+                152 |   AttackInstanceSG:
+                153 |     Type: AWS::EC2::SecurityGroup
+                154 |     Properties:
+                155 |       GroupName: AttackInstanceSG
+                156 |       GroupDescription: "Security group for the attack instance"
+                157 |       SecurityGroupEgress:
+                158 |       - IpProtocol: -1
+                159 |         CidrIp: 0.0.0.0/0
+                160 |       SecurityGroupIngress:
+                161 |       - IpProtocol: tcp
+                162 |         FromPort: 22
+                163 |         ToPort: 22
+                164 |         CidrIp: 0.0.0.0/0
+                165 |       VpcId: !ImportValue VpcId
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: /c3-s3.yml:4-7
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-13-enable-logging.html
+
+                4 |   S3BucketRecipesFree:
+                5 |     Type: AWS::S3::Bucket
+                6 |     Properties:
+                7 |       BucketName: !Join [ "-", [ "cand-c3-free-recipes", !Ref 'AWS::AccountId' ] ]
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: /c3-s3.yml:4-7
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/bc-aws-s3-19.html
+
+                4 |   S3BucketRecipesFree:
+                5 |     Type: AWS::S3::Bucket
+                6 |     Properties:
+                7 |       BucketName: !Join [ "-", [ "cand-c3-free-recipes", !Ref 'AWS::AccountId' ] ]
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: /c3-s3.yml:4-7
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/bc-aws-s3-20.html
+
+                4 |   S3BucketRecipesFree:
+                5 |     Type: AWS::S3::Bucket
+                6 |     Properties:
+                7 |       BucketName: !Join [ "-", [ "cand-c3-free-recipes", !Ref 'AWS::AccountId' ] ]
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: /c3-s3.yml:4-7
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/bc-aws-s3-21.html
+
+                4 |   S3BucketRecipesFree:
+                5 |     Type: AWS::S3::Bucket
+                6 |     Properties:
+                7 |       BucketName: !Join [ "-", [ "cand-c3-free-recipes", !Ref 'AWS::AccountId' ] ]
+
+Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_bucket' enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: /c3-s3.yml:4-7
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/bc-aws-s3-22.html
+
+                4 |   S3BucketRecipesFree:
+                5 |     Type: AWS::S3::Bucket
+                6 |     Properties:
+                7 |       BucketName: !Join [ "-", [ "cand-c3-free-recipes", !Ref 'AWS::AccountId' ] ]
+
+Check: CKV_AWS_21: "Ensure the S3 bucket has versioning enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: /c3-s3.yml:4-7
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-16-enable-versioning.html
+
+                4 |   S3BucketRecipesFree:
+                5 |     Type: AWS::S3::Bucket
+                6 |     Properties:
+                7 |       BucketName: !Join [ "-", [ "cand-c3-free-recipes", !Ref 'AWS::AccountId' ] ]
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: /c3-s3.yml:8-11
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/s3-13-enable-logging.html
+
+                8  |   S3BucketRecipesSecret:
+                9  |     Type: AWS::S3::Bucket
+                10 |     Properties:
+                11 |       BucketName: !Join [ "-", [ "cand-c3-secret-recipes", !Ref 'AWS::AccountId' ] ]
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: /c3-s3.yml:8-11
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/bc-aws-s3-19.html
+
+                8  |   S3BucketRecipesSecret:
+                9  |     Type: AWS::S3::Bucket
+                10 |     Properties:
+                11 |       BucketName: !Join [ "-", [ "cand-c3-secret-recipes", !Ref 'AWS::AccountId' ] ]
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: /c3-s3.yml:8-11
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/bc-aws-s3-20.html
+
+                8  |   S3BucketRecipesSecret:
+                9  |     Type: AWS::S3::Bucket
+                10 |     Properties:
+                11 |       BucketName: !Join [ "-", [ "cand-c3-secret-recipes", !Ref 'AWS::AccountId' ] ]
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: /c3-s3.yml:8-11
+        Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/aws-policies/s3-policies/bc-aws-s3-21.html
+
+                8  |   S3BucketRecipesSecret:
+                9  |     Type: AWS::S3::Bucket
+                13 |       Type: AWS::S3::Bucket
+                14 |       Properties:
+                15 |         BucketName: !Join [ "-", [ "cand-c3-vpc-flow-logs", !Ref 'AWS::AccountId' ] ]
+
+
+

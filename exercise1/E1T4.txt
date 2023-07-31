@@ -1,0 +1,7 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+Web Service Instance connect to Amazon S3 through Public Internet. It is more secure that use VPC Gateway Endpoint. VPC Gateway Endpoint allow EC2 instances connect to Amazon S3 by AWS PrivateLink.
+
+# Poor practice 2
+IAM Role have full access permission to Amazon S3 bucket. IAM Role should only have specify permission to access to specify Amazon S3 bucket. 
